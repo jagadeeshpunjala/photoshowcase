@@ -459,28 +459,21 @@
     <script>
       $(document).ready(function () {
         $("#lightgallery").lightGallery();
+
+        $.ajax({
+          type: "get",
+          dataType: "jsonp",
+          crossDomain: true,
+          url: "https://photoshowcaseapi.onrender.com/",
+          success: function (res) {
+            console.log("from api", JSON.stringify(res));
+            //$(".site-wrap").insertBefore("<p>" + JSON.stringify(res) + "</p>");
+          },
+          error: function (xhr, status) {
+            alert("error", xhr, status);
+          },
+        });
       });
     </script>
-
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-23581568-13");
-    </script>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
-      integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
-      data-cf-beacon='{"rayId":"7795632e9afcc920","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.3","si":100}'
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
